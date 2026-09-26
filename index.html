@@ -397,12 +397,18 @@
             display: grid;
 
             grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+                repeat(4, minmax(0, 1fr));
 
             gap: 18px;
         }
 
+        /* =========================
+           PORTFOLIO ARTWORKS
+        ========================= */
+
         .portfolio-item {
+            grid-column: span 2;
+
             position: relative;
             overflow: hidden;
 
@@ -414,7 +420,8 @@
         }
 
         .portfolio-item.large {
-            grid-column: span 2;
+            grid-column: span 4;
+
             aspect-ratio: 21 / 9;
         }
 
@@ -435,6 +442,10 @@
             transform: scale(1.04);
             filter: brightness(0.72);
         }
+
+        /* =========================
+           PORTFOLIO OVERLAY
+        ========================= */
 
         .portfolio-overlay {
             position: absolute;
@@ -520,51 +531,20 @@
         }
 
         /* =========================
-           ANIMATIONS
+           VERTICAL ANIMATIONS
         ========================= */
 
-        .animations-section {
-            padding: 0 8% 110px;
-        }
-
-        .animations-header {
-            margin-bottom: 35px;
-        }
-
-        .animations-header h2 {
-            font-size: clamp(35px, 6vw, 70px);
-            letter-spacing: -3px;
-            color: var(--white-blue);
-        }
-
-        .animations-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap: 18px;
-
-            align-items: start;
-        }
-
         .animation-item {
+            grid-column: span 1;
+
             position: relative;
             overflow: hidden;
-
-            aspect-ratio: 9 / 16;
 
             background: var(--dark-blue);
 
             border: 1px solid var(--line);
 
-            min-width: 0;
-        }
-
-        /* Primeros 4:
-           2 videos por fila */
-        .animation-item:nth-child(-n + 4) {
-            grid-column: span 2;
+            aspect-ratio: 9 / 16;
         }
 
         .animation-item video {
@@ -582,48 +562,8 @@
 
         .animation-item:hover video {
             transform: scale(1.035);
+
             filter: brightness(0.72);
-        }
-
-        .animation-overlay {
-            position: absolute;
-            inset: 0;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            padding: 22px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent 45%,
-                    rgba(5, 7, 11, 0.9)
-                );
-
-            opacity: 0;
-
-            transition: 0.4s ease;
-
-            pointer-events: none;
-        }
-
-        .animation-item:hover .animation-overlay {
-            opacity: 1;
-        }
-
-        .animation-overlay h3 {
-            font-size: 17px;
-            margin-bottom: 5px;
-        }
-
-        .animation-overlay p {
-            font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-
-            color: var(--white-blue);
         }
 
         /* =========================
@@ -828,7 +768,7 @@
         }
 
         /* =========================
-           MOBILE
+           TABLET
         ========================= */
 
         @media (max-width: 900px) {
@@ -863,28 +803,28 @@
 
             .work-section,
             .services,
-            .about,
-            .animations-section {
+            .about {
                 padding-left: 6%;
                 padding-right: 6%;
             }
 
+            /* Portfolio becomes 2 columns */
+
             .portfolio-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .portfolio-item {
+                grid-column: span 1;
             }
 
             .portfolio-item.large {
-                grid-column: span 1;
+                grid-column: span 2;
                 aspect-ratio: 16 / 10;
             }
 
-            /* MOBILE ANIMATIONS */
-
-            .animations-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .animation-item:nth-child(-n + 4) {
+            .animation-item {
                 grid-column: span 1;
             }
 
@@ -912,6 +852,10 @@
             }
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 560px) {
 
             .hero h1 {
@@ -920,6 +864,22 @@
 
             .hero-logo {
                 width: 70px;
+            }
+
+            /* Portfolio becomes 1 column */
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item,
+            .portfolio-item.large,
+            .animation-item {
+                grid-column: span 1;
+            }
+
+            .portfolio-item.large {
+                aspect-ratio: 16 / 10;
             }
 
             .services-grid {
@@ -1047,7 +1007,6 @@
 
             </div>
 
-
             <div class="music-grid">
 
                 <div class="music-card">
@@ -1115,7 +1074,10 @@
 
             <div class="portfolio-grid">
 
-                <!-- 01 — PRINCIPAL -->
+                <!-- =========================
+                     01 — PRINCIPAL
+                     NO PLAY BUTTON
+                ========================= -->
 
                 <div class="portfolio-item large">
 
@@ -1139,7 +1101,9 @@
                 </div>
 
 
-                <!-- 02 — DISTANT MEMORY -->
+                <!-- =========================
+                     02 — DISTANT MEMORY
+                ========================= -->
 
                 <div class="portfolio-item">
 
@@ -1173,7 +1137,9 @@
                 </div>
 
 
-                <!-- 03 — ALL YOU GOTTA DO IS BELIEVE -->
+                <!-- =========================
+                     03 — ALL YOU GOTTA DO IS BELIEVE
+                ========================= -->
 
                 <div class="portfolio-item">
 
@@ -1207,7 +1173,9 @@
                 </div>
 
 
-                <!-- 04 — BIG CASH -->
+                <!-- =========================
+                     04 — BIG CASH
+                ========================= -->
 
                 <div class="portfolio-item">
 
@@ -1241,7 +1209,9 @@
                 </div>
 
 
-                <!-- 05 — BETWEEN US -->
+                <!-- =========================
+                     05 — BETWEEN US
+                ========================= -->
 
                 <div class="portfolio-item">
 
@@ -1274,65 +1244,10 @@
 
                 </div>
 
-            </div>
 
-        </section>
-
-
-        <!-- =========================
-             ANIMATIONS
-        ========================= -->
-
-        <section class="animations-section">
-
-            <div class="animations-header">
-
-                <div class="section-title">
-                    Animations
-                </div>
-
-                <h2>
-                    Motion Visuals
-                </h2>
-
-            </div>
-
-
-            <div class="animations-grid">
-
-                <!-- 01 -->
-
-                <div class="animation-item">
-
-                    <video
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        preload="metadata"
-                    >
-                        <source
-                            src="video%20Dr%21ftr0y%20canvas.mp4"
-                            type="video/mp4"
-                        >
-                    </video>
-
-                    <div class="animation-overlay">
-
-                        <h3>
-                            Dr!ftr0y
-                        </h3>
-
-                        <p>
-                            Motion Visual
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- 02 -->
+                <!-- =========================
+                     06 — VERTICAL VIDEO
+                ========================= -->
 
                 <div class="animation-item">
 
@@ -1352,7 +1267,9 @@
                 </div>
 
 
-                <!-- 03 -->
+                <!-- =========================
+                     07 — VERTICAL VIDEO
+                ========================= -->
 
                 <div class="animation-item">
 
@@ -1372,7 +1289,9 @@
                 </div>
 
 
-                <!-- 04 -->
+                <!-- =========================
+                     08 — VERTICAL VIDEO
+                ========================= -->
 
                 <div class="animation-item">
 
@@ -1392,67 +1311,9 @@
                 </div>
 
 
-                <!-- 05 -->
-
-                <div class="animation-item">
-
-                    <video
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        preload="metadata"
-                    >
-                        <source
-                            src="video%20Dr%21ftr0y%20canvas.mp4"
-                            type="video/mp4"
-                        >
-                    </video>
-
-                </div>
-
-
-                <!-- 06 -->
-
-                <div class="animation-item">
-
-                    <video
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        preload="metadata"
-                    >
-                        <source
-                            src="video%20Dr%21ftr0y%20canvas.mp4"
-                            type="video/mp4"
-                        >
-                    </video>
-
-                </div>
-
-
-                <!-- 07 -->
-
-                <div class="animation-item">
-
-                    <video
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        preload="metadata"
-                    >
-                        <source
-                            src="video%20Dr%21ftr0y%20canvas.mp4"
-                            type="video/mp4"
-                        >
-                    </video>
-
-                </div>
-
-
-                <!-- 08 -->
+                <!-- =========================
+                     09 — VERTICAL VIDEO
+                ========================= -->
 
                 <div class="animation-item">
 
@@ -1493,7 +1354,6 @@
                 </h2>
 
             </div>
-
 
             <div class="services-grid">
 

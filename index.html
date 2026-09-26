@@ -477,6 +477,50 @@
         }
 
         /* =========================
+           PLAY BUTTON
+        ========================= */
+
+        .play-button {
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 16px;
+
+            border-radius: 50%;
+
+            color: #FFFFFF;
+
+            background:
+                rgba(56, 136, 252, 0.88);
+
+            border:
+                1px solid rgba(233, 244, 255, 0.3);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            font-size: 15px;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.12);
+
+            background: var(--blue);
+
+            box-shadow:
+                0 0 25px rgba(56, 136, 252, 0.45);
+        }
+
+        /* =========================
            SERVICES
         ========================= */
 
@@ -842,6 +886,7 @@
         <section class="hero">
 
             <!-- LOGO -->
+
             <img
                 src="lownylogo1.png"
                 alt="LOWNY.JPG Logo"
@@ -955,6 +1000,11 @@
 
             <div class="portfolio-grid">
 
+                <!-- =========================
+                     01 — PRINCIPAL
+                     NO PLAY BUTTON
+                ========================= -->
+
                 <div class="portfolio-item large">
 
                     <img
@@ -977,6 +1027,10 @@
                 </div>
 
 
+                <!-- =========================
+                     02 — DISTANT MEMORY
+                ========================= -->
+
                 <div class="portfolio-item">
 
                     <img
@@ -991,74 +1045,126 @@
                         </h3>
 
                         <p>
-                            Cover Art
+                            Joogornot · Cover Art
                         </p>
+
+                        <a
+                            href="https://open.spotify.com/intl-es/track/6AjffKwUPfSTRXwmJCDiEg?si=7f6e316a8aa14782"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="play-button"
+                            aria-label="Play Distant Memory on Spotify"
+                        >
+                            ▶
+                        </a>
 
                     </div>
 
                 </div>
 
+
+                <!-- =========================
+                     03 — ALL YOU GOTTA DO IS BELIEVE
+                ========================= -->
 
                 <div class="portfolio-item">
 
                     <img
                         src="https://cdna.artstation.com/p/assets/images/images/096/759/230/large/lowny-jpg-final-artwork-ep-v2-atst.webp?1772219363"
-                        alt="Final Artwork EP — LOWNY.JPG"
+                        alt="All You Gotta Do Is Believe — LOWNY.JPG"
                     >
 
                     <div class="portfolio-overlay">
 
                         <h3>
-                            Final Artwork EP
+                            All You Gotta Do Is Believe
                         </h3>
 
                         <p>
-                            Cover Art
+                            Cellarium · Cover Art
                         </p>
+
+                        <a
+                            href="https://open.spotify.com/intl-es/album/61WLcbo2HsB0y2cFOPoAgy?si=MV1lMVl5R1OiJrbfTentfg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="play-button"
+                            aria-label="Play All You Gotta Do Is Believe on Spotify"
+                        >
+                            ▶
+                        </a>
 
                     </div>
 
                 </div>
 
+
+                <!-- =========================
+                     04 — BIG CASH
+                ========================= -->
 
                 <div class="portfolio-item">
 
                     <img
                         src="https://cdna.artstation.com/p/assets/images/images/090/170/744/large/lowny-jpg-lowny-71-tribal-trap-artwork.jpg?1753125199"
-                        alt="Tribal Trap Artwork — LOWNY.JPG"
+                        alt="Big Cash — LOWNY.JPG"
                     >
 
                     <div class="portfolio-overlay">
 
                         <h3>
-                            Tribal Trap
+                            Big Cash
                         </h3>
 
                         <p>
-                            Cover Art
+                            Slowboy & Lucaf · Cover Art
                         </p>
+
+                        <a
+                            href="https://open.spotify.com/intl-es/track/36WH0ExFCxWODiHnoaL3Hr?si=25dd7265a42c4c9e"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="play-button"
+                            aria-label="Play Big Cash on Spotify"
+                        >
+                            ▶
+                        </a>
 
                     </div>
 
                 </div>
 
 
+                <!-- =========================
+                     05 — BETWEEN US
+                ========================= -->
+
                 <div class="portfolio-item">
 
                     <img
                         src="https://cdna.artstation.com/p/assets/images/images/071/265/032/large/lowny-jpg-artwwork-lowny-2.jpg?1704816521"
-                        alt="Artwork LOWNY 2"
+                        alt="Between Us — LOWNY.JPG"
                     >
 
                     <div class="portfolio-overlay">
 
                         <h3>
-                            LOWNY 02
+                            Between Us
                         </h3>
 
                         <p>
-                            Digital Artwork
+                            CAZSEM · Cover Art
                         </p>
+
+                        <a
+                            href="https://open.spotify.com/intl-es/album/0oANgcyETbwbL7DYJ5P0ma?si=6980l1v_SimTcb7KfSiKDw"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="play-button"
+                            aria-label="Play Between Us on Spotify"
+                        >
+                            ▶
+                        </a>
 
                     </div>
 

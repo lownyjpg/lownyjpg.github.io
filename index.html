@@ -12,11 +12,6 @@
     >
 
     <style>
-
-        /* =========================================================
-           BRAND
-        ========================================================= */
-
         :root {
             --blue: #3888FC;
             --dark-blue: #192338;
@@ -31,55 +26,43 @@
             --black: #05070B;
         }
 
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
             background: var(--black);
             color: var(--white-blue);
-
+            font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
         }
-
 
         a {
             color: inherit;
             text-decoration: none;
         }
 
-
-        /* =========================================================
+        /* =========================
            BACKGROUND VIDEO
-        ========================================================= */
+        ========================= */
+
+        .bg-video-wrap {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            overflow: hidden;
+            background: #05070B;
+        }
 
         .bg-video {
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
             width: 100%;
             height: 100%;
-
             object-fit: cover;
 
             filter:
@@ -88,373 +71,291 @@
                 saturate(1.15);
 
             transform: scale(1.08);
-
             opacity: 0.9;
-
-            z-index: 0;
-
-            pointer-events: none;
         }
 
-
         .bg-overlay {
-            position: fixed;
-
+            position: absolute;
             inset: 0;
 
             background:
-                radial-gradient(
-                    circle at center,
-                    rgba(25, 35, 56, 0.03),
-                    rgba(5, 7, 11, 0.25)
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 11, 0.18),
+                    rgba(5, 7, 11, 0.48)
                 );
-
-            z-index: 1;
-
-            pointer-events: none;
         }
 
+        /* =========================
+           NAVIGATION
+        ========================= */
 
-        /* =========================================================
-           GLOBAL
-        ========================================================= */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
 
-        .site-content {
-            position: relative;
-            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 25px 8%;
+
+            z-index: 50;
+
+            background: linear-gradient(
+                180deg,
+                rgba(5, 7, 11, 0.72),
+                rgba(5, 7, 11, 0)
+            );
         }
 
+        .nav-logo {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--white-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white-blue);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 82vh;
+            padding: 100px 8% 50px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 140px);
+            font-weight: 800;
+            letter-spacing: -6px;
+            line-height: 0.9;
+
+            color: var(--white-blue);
+
+            text-shadow:
+                0 0 30px rgba(56, 136, 252, 0.12);
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            margin-top: 28px;
+            max-width: 650px;
+
+            font-size: 15px;
+            line-height: 1.7;
+
+            color: var(--white-blue);
+        }
+
+        .hero-button {
+            margin-top: 35px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 22px;
+
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: var(--white-blue);
+
+            background: rgba(25, 35, 56, 0.45);
+
+            border: 1px solid rgba(233, 244, 255, 0.16);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.12);
+
+            transition: 0.3s ease;
+        }
+
+        .hero-button:hover {
+            border-color: rgba(56, 136, 252, 0.45);
+
+            background: rgba(25, 35, 56, 0.6);
+
+            box-shadow:
+                0 10px 35px rgba(56, 136, 252, 0.12);
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             position: relative;
         }
 
-
         .section-title {
             display: inline-block;
 
             margin-bottom: 18px;
-
             padding: 8px 14px;
 
             font-size: 11px;
-
             letter-spacing: 3px;
-
             text-transform: uppercase;
 
             color: var(--blue);
 
-            background:
-                rgba(25, 35, 56, 0.45);
+            background: rgba(25, 35, 56, 0.45);
 
-            border:
-                1px solid
-                rgba(233, 244, 255, 0.16);
+            border: 1px solid rgba(233, 244, 255, 0.16);
 
             backdrop-filter: blur(10px);
-
             -webkit-backdrop-filter: blur(10px);
 
             box-shadow:
-                0 8px 30px
-                rgba(0, 0, 0, 0.12);
+                0 8px 30px rgba(0, 0, 0, 0.12);
 
             transition: 0.3s ease;
         }
-
 
         .section-title:hover {
-            border-color:
-                rgba(56, 136, 252, 0.45);
+            border-color: rgba(56, 136, 252, 0.45);
 
-            background:
-                rgba(25, 35, 56, 0.6);
+            background: rgba(25, 35, 56, 0.6);
 
             box-shadow:
-                0 10px 35px
-                rgba(56, 136, 252, 0.12);
+                0 10px 35px rgba(56, 136, 252, 0.12);
         }
 
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            min-height: 82vh;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-            padding: 100px 8% 50px;
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-
-        .hero h1 {
-            position: relative;
-
-            z-index: 2;
-
-            font-size: clamp(
-                70px,
-                15vw,
-                220px
-            );
-
-            line-height: 0.82;
-
-            letter-spacing: -10px;
-
-            color: var(--white-blue);
-
-            text-shadow:
-                0 0 45px
-                rgba(56, 136, 252, 0.16);
-        }
-
-
-        .hero h1 .accent {
-            color: var(--blue);
-        }
-
-
-        .hero p {
-            max-width: 720px;
-
-            margin-top: 40px;
-
-            font-size: 17px;
-
-            line-height: 1.7;
-
-            color: var(--white-blue);
-
-            opacity: 0.9;
-        }
-
-
-        .hero-button {
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            margin-top: 35px;
-
-            padding: 15px 28px;
-
-            border:
-                1px solid
-                rgba(56, 136, 252, 0.65);
-
-            background:
-                rgba(25, 35, 56, 0.45);
-
-            backdrop-filter: blur(10px);
-
-            color: var(--white-blue);
-
-            font-size: 12px;
-
-            font-weight: bold;
-
-            letter-spacing: 2px;
-
-            transition: 0.3s ease;
-        }
-
-
-        .hero-button:hover {
-            background: var(--blue);
-
-            border-color: var(--blue);
-
-            color: white;
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 10px 35px
-                rgba(56, 136, 252, 0.3);
-        }
-
-
-        /* =========================================================
-           MUSIC & VISUALS
-        ========================================================= */
+        /* =========================
+           MUSIC
+        ========================= */
 
         .music-section {
             padding: 35px 8% 100px;
         }
 
-
-        .music-container {
-            max-width: 1100px;
-
-            margin: 0 auto;
-        }
-
-
         .music-header {
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-end;
+
+            gap: 40px;
 
             margin-bottom: 22px;
         }
 
-
         .music-header h2 {
-            font-size: 42px;
-
+            font-size: clamp(30px, 5vw, 60px);
             letter-spacing: -2px;
+            color: var(--white-blue);
         }
-
 
         .music-header p {
-            color: var(--muted);
+            max-width: 280px;
 
             font-size: 13px;
+            line-height: 1.6;
 
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
+            color: var(--white-blue);
         }
 
-
-        /* =========================================================
-           SPOTIFY GRID
-        ========================================================= */
-
-        .spotify-grid {
+        .music-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 25px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
+        .music-card {
+            padding: 20px;
 
-        .music-player {
-            padding: 18px;
+            background: rgba(5, 7, 11, 0.42);
 
-            background:
-                rgba(25, 35, 56, 0.58);
+            border: 1px solid var(--line);
 
-            border:
-                1px solid
-                rgba(233, 244, 255, 0.14);
-
-            backdrop-filter: blur(18px);
-
-            -webkit-backdrop-filter: blur(18px);
-
-            box-shadow:
-                0 25px 80px
-                rgba(0, 0, 0, 0.28);
-
-            transition: 0.3s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-
-
-        .music-player:hover {
-            transform: translateY(-5px);
-
-            border-color:
-                rgba(56, 136, 252, 0.45);
-
-            box-shadow:
-                0 30px 90px
-                rgba(56, 136, 252, 0.12);
-        }
-
 
         .music-label {
             display: flex;
-
             justify-content: space-between;
 
-            align-items: center;
+            margin-bottom: 15px;
 
-            margin-bottom: 14px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
 
-            padding: 0 3px;
+            color: var(--white-blue);
         }
 
-
         .music-label span:first-child {
-            font-size: 10px;
-
-            letter-spacing: 3px;
-
             color: var(--blue);
         }
 
-
-        .music-label span:last-child {
-            font-size: 13px;
-
-            letter-spacing: 2px;
-
-            color: var(--white-blue);
-
-            font-weight: bold;
-        }
-
-
         .spotify-frame {
             width: 100%;
+            height: 152px;
 
-            height: 352px;
-
-            border: 0;
-
+            border: none;
             border-radius: 12px;
         }
 
+        /* =========================
+           WORK
+        ========================= */
 
-        /* =========================================================
-           PORTFOLIO
-        ========================================================= */
-
-        .work {
-            padding: 120px 8%;
+        .work-section {
+            padding: 80px 8% 110px;
         }
-
 
         .work-header {
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-end;
 
-            margin-bottom: 50px;
-        }
+            gap: 40px;
 
+            margin-bottom: 35px;
+        }
 
         .work-header h2 {
-            font-size: 60px;
-
-            letter-spacing: -4px;
+            font-size: clamp(35px, 6vw, 70px);
+            letter-spacing: -3px;
+            color: var(--white-blue);
         }
-
 
         .work-header p {
             max-width: 350px;
@@ -464,35 +365,33 @@
             line-height: 1.6;
         }
 
-
         .portfolio-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(2, 1fr);
+                repeat(2, minmax(0, 1fr));
 
-            gap: 20px;
+            gap: 18px;
         }
-
 
         .portfolio-item {
             position: relative;
-
             overflow: hidden;
-
-            aspect-ratio: 16 / 10;
 
             background: var(--dark-blue);
 
-            border:
-                1px solid
-                var(--line);
+            border: 1px solid var(--line);
+
+            aspect-ratio: 16 / 10;
         }
 
+        .portfolio-item.large {
+            grid-column: span 2;
+            aspect-ratio: 21 / 9;
+        }
 
         .portfolio-item img {
             width: 100%;
-
             height: 100%;
 
             object-fit: cover;
@@ -500,36 +399,30 @@
             display: block;
 
             transition:
-                transform 0.6s ease,
-                filter 0.6s ease;
+                transform 0.7s ease,
+                filter 0.7s ease;
         }
-
 
         .portfolio-item:hover img {
-            transform: scale(1.06);
-
-            filter:
-                brightness(0.75)
-                saturate(1.15);
+            transform: scale(1.04);
+            filter: brightness(0.72);
         }
-
 
         .portfolio-overlay {
             position: absolute;
-
             inset: 0;
 
             display: flex;
-
-            align-items: flex-end;
+            flex-direction: column;
+            justify-content: flex-end;
 
             padding: 25px;
 
             background:
                 linear-gradient(
-                    to top,
-                    rgba(5, 7, 11, 0.85),
-                    transparent 60%
+                    180deg,
+                    transparent 35%,
+                    rgba(5, 7, 11, 0.9)
                 );
 
             opacity: 0;
@@ -537,535 +430,451 @@
             transition: 0.4s ease;
         }
 
-
-        .portfolio-item:hover
-        .portfolio-overlay {
+        .portfolio-item:hover .portfolio-overlay {
             opacity: 1;
         }
 
-
         .portfolio-overlay h3 {
             font-size: 20px;
-
-            letter-spacing: 1px;
+            margin-bottom: 6px;
         }
 
+        .portfolio-overlay p {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
 
-        /* =========================================================
+            color: var(--white-blue);
+        }
+
+        /* =========================
            SERVICES
-        ========================================================= */
+        ========================= */
 
         .services {
-            padding: 120px 8%;
+            padding: 80px 8% 110px;
         }
 
-
-        .services h2 {
-            font-size: 60px;
-
-            letter-spacing: -4px;
-
-            margin-bottom: 50px;
+        .services-header {
+            margin-bottom: 40px;
         }
 
+        .services-header h2 {
+            font-size: clamp(35px, 6vw, 70px);
+            letter-spacing: -3px;
+        }
 
         .services-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(2, 1fr);
+                repeat(4, minmax(0, 1fr));
 
-            gap: 20px;
+            gap: 15px;
         }
-
 
         .service-card {
-            padding: 45px;
+            min-height: 230px;
 
-            min-height: 220px;
+            padding: 25px;
 
-            background:
-                rgba(25, 35, 56, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-            border:
-                1px solid
-                var(--line);
+            background: rgba(25, 35, 56, 0.38);
 
-            backdrop-filter: blur(15px);
+            border: 1px solid var(--line);
 
-            transition: 0.3s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            transition: 0.35s ease;
         }
-
 
         .service-card:hover {
             transform: translateY(-5px);
 
             border-color:
-                rgba(56, 136, 252, 0.5);
+                rgba(56, 136, 252, 0.42);
 
             background:
-                rgba(25, 35, 56, 0.7);
+                rgba(25, 35, 56, 0.55);
         }
-
 
         .service-number {
+            font-size: 11px;
+            letter-spacing: 2px;
             color: var(--blue);
-
-            font-size: 12px;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 35px;
         }
-
 
         .service-card h3 {
-            font-size: 28px;
+            margin-top: 35px;
 
-            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--white-blue);
         }
-
 
         .service-card p {
-            color: var(--muted);
+            margin-top: 12px;
 
+            font-size: 12px;
             line-height: 1.6;
+
+            color: var(--white-blue);
         }
 
-
-        /* =========================================================
+        /* =========================
            ABOUT
-        ========================================================= */
+        ========================= */
 
         .about {
-            padding: 120px 8%;
+            padding: 80px 8% 110px;
 
             display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
+            grid-template-columns: 1fr 1fr;
 
             gap: 80px;
 
             align-items: center;
         }
 
-
         .about h2 {
-            font-size: 60px;
-
-            letter-spacing: -4px;
+            font-size: clamp(35px, 6vw, 70px);
+            letter-spacing: -3px;
         }
 
-
         .about-text {
-            color: var(--muted);
+            color: var(--white-blue);
 
-            font-size: 17px;
-
+            font-size: 15px;
             line-height: 1.8;
         }
 
+        .about-text + .about-text {
+            margin-top: 20px;
+        }
 
-        /* =========================================================
+        /* =========================
            CONTACT
-        ========================================================= */
+        ========================= */
 
         .contact {
-            padding: 150px 8%;
+            padding: 100px 8% 120px;
 
             text-align: center;
         }
 
-
         .contact h2 {
-            font-size: clamp(
-                60px,
-                10vw,
-                140px
-            );
-
-            line-height: 0.9;
-
-            letter-spacing: -7px;
+            font-size: clamp(45px, 8vw, 100px);
+            letter-spacing: -5px;
         }
-
 
         .contact p {
-            margin-top: 30px;
+            margin: 20px auto 30px;
 
-            color: var(--muted);
+            max-width: 500px;
+
+            color: var(--white-blue);
+
+            line-height: 1.7;
         }
 
-
         .contact-button {
-            display: inline-block;
+            display: inline-flex;
 
-            margin-top: 40px;
+            padding: 14px 24px;
 
-            padding: 17px 35px;
-
-            background: var(--blue);
-
-            color: white;
-
-            font-size: 12px;
-
-            font-weight: bold;
-
+            font-size: 11px;
             letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: var(--white-blue);
+
+            background:
+                rgba(25, 35, 56, 0.45);
+
+            border:
+                1px solid rgba(233, 244, 255, 0.16);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
 
             transition: 0.3s ease;
         }
 
-
         .contact-button:hover {
-            transform: translateY(-4px);
+            color: var(--blue);
 
-            box-shadow:
-                0 15px 45px
-                rgba(56, 136, 252, 0.3);
+            border-color:
+                rgba(56, 136, 252, 0.45);
+
+            background:
+                rgba(25, 35, 56, 0.6);
         }
 
-
-        /* =========================================================
+        /* =========================
            FOOTER
-        ========================================================= */
+        ========================= */
 
         footer {
-            padding: 35px 8%;
-
-            border-top:
-                1px solid
-                var(--line);
+            padding: 30px 8%;
 
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
 
-            color: var(--muted);
+            border-top:
+                1px solid var(--line);
 
-            font-size: 12px;
+            color: var(--white-blue);
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
-
 
         .footer-links {
             display: flex;
-
             gap: 25px;
         }
 
-
         .footer-links a {
+            color: var(--white-blue);
             transition: 0.3s ease;
         }
-
 
         .footer-links a:hover {
             color: var(--blue);
         }
 
-
-        /* =========================================================
+        /* =========================
            MOBILE
-        ========================================================= */
+        ========================= */
 
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
 
             .hero {
                 min-height: 78vh;
-
-                padding:
-                    90px 6% 40px;
+                padding: 90px 6% 40px;
             }
-
-
-            .hero h1 {
-                font-size:
-                    clamp(55px, 16vw, 110px);
-
-                letter-spacing: -5px;
-            }
-
-
-            .hero p {
-                font-size: 15px;
-
-                max-width: 500px;
-            }
-
 
             .music-section {
-                padding:
-                    45px 6% 90px;
+                padding: 45px 6% 90px;
             }
 
-
-            .music-header {
-                display: block;
-
-                margin-bottom: 22px;
+            .music-header,
+            .work-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-
-            .music-header h2 {
-                font-size: 36px;
-
-                margin-bottom: 10px;
-            }
-
-
-            .music-header p {
-                margin-top: 15px;
-            }
-
-
-            .spotify-grid {
+            .music-grid {
                 grid-template-columns: 1fr;
             }
 
-
-            .spotify-frame {
-                height: 352px;
+            .work-section,
+            .services,
+            .about {
+                padding-left: 6%;
+                padding-right: 6%;
             }
-
-
-            .work,
-            .services {
-                padding:
-                    90px 6%;
-            }
-
-
-            .work-header {
-                display: block;
-            }
-
-
-            .work-header h2,
-            .services h2,
-            .about h2 {
-                font-size: 45px;
-
-                letter-spacing: -3px;
-
-                margin-bottom: 20px;
-            }
-
 
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
 
+            .portfolio-item.large {
+                grid-column: span 1;
+                aspect-ratio: 16 / 10;
+            }
+
+            .services-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .contact {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            footer {
+                padding-left: 6%;
+                padding-right: 6%;
+
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
-
-            .service-card {
-                padding: 35px;
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-
-
-            .about {
-                padding:
-                    90px 6%;
-
-                grid-template-columns: 1fr;
-
-                gap: 35px;
-            }
-
-
-            .contact {
-                padding:
-                    110px 6%;
-            }
-
-
-            .contact h2 {
-                letter-spacing: -4px;
-            }
-
-
-            footer {
-                padding:
-                    30px 6%;
-
-                flex-direction: column;
-
-                gap: 20px;
-
-                text-align: center;
-            }
-
         }
-
     </style>
 </head>
 
-
 <body>
 
-
-    <!-- =========================================================
+    <!-- =========================
          BACKGROUND
-    ========================================================== -->
+    ========================= -->
 
-    <video
-        class="bg-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-    >
+    <div class="bg-video-wrap">
 
-        <source
-            src="background.mp4"
-            type="video/mp4"
+        <video
+            class="bg-video"
+            autoplay
+            muted
+            loop
+            playsinline
         >
+            <source src="background.mp4" type="video/mp4">
+        </video>
 
-    </video>
+        <div class="bg-overlay"></div>
 
-
-    <div class="bg-overlay"></div>
-
-
-    <div class="site-content">
+    </div>
 
 
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
-        <header class="hero">
+    <nav>
 
-            <h1>
-                LOWNY<span class="accent">.</span>JPG
-            </h1>
+        <a href="#" class="nav-logo">
+            LOWNY.JPG
+        </a>
 
+        <div class="nav-links">
 
-            <p>
-                3D Artist & Visual Designer creating
-                cover art, animated visuals and cinematic
-                3D artwork for electronic music artists
-                and labels.
-            </p>
-
-
-            <a
-                href="#work"
-                class="hero-button"
-            >
-                EXPLORE WORK →
+            <a href="#work">
+                Work
             </a>
 
-        </header>
+            <a href="#music">
+                Music
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
 
 
+    <!-- =========================
+         HERO
+    ========================= -->
 
-        <!-- =====================================================
-             MUSIC & VISUALS
-        ====================================================== -->
+    <main>
 
-        <section
-            class="music-section"
-            id="music"
-        >
+        <section class="hero">
 
-            <div class="music-container">
+            <h1>
+                LOWNY<span>.JPG</span>
+            </h1>
+
+            <p>
+                3D Artist & Visual Designer creating cover art,
+                motion visuals, music visualizers and cinematic
+                artwork for artists and creative projects.
+            </p>
+
+            <a href="#work" class="hero-button">
+                Explore Work →
+            </a>
+
+        </section>
 
 
-                <div class="music-header">
+        <!-- =========================
+             MUSIC
+        ========================= -->
 
-                    <div>
+        <section class="music-section" id="music">
 
-                        <div class="section-title">
-                            MUSIC & VISUALS
-                        </div>
+            <div class="section-title">
+                Music & Visuals
+            </div>
 
-                        <h2>
-                            Music & Art
-                        </h2>
+            <div class="music-header">
 
+                <h2>
+                    Music & Art
+                </h2>
+
+                <p>
+                    Two sides of LOWNY.
+                </p>
+
+            </div>
+
+
+            <div class="music-grid">
+
+                <div class="music-card">
+
+                    <div class="music-label">
+                        <span>Artist</span>
+                        <span>Lonely Fun</span>
                     </div>
 
-
-                    <p>
-                        Two sides of LOWNY
-                    </p>
+                    <iframe
+                        class="spotify-frame"
+                        src="https://open.spotify.com/embed/artist/0RXn6P4sZpjnB7bbrFLSLc?utm_source=generator&theme=0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                    ></iframe>
 
                 </div>
 
 
+                <div class="music-card">
 
-                <div class="spotify-grid">
-
-
-                    <!-- =================================================
-                         LONELY FUN — ARTIST PROFILE
-                    ================================================== -->
-
-                    <div class="music-player">
-
-                        <div class="music-label">
-
-                            <span>
-                                ARTIST
-                            </span>
-
-                            <span>
-                                LONELY FUN
-                            </span>
-
-                        </div>
-
-
-                        <iframe
-                            class="spotify-frame"
-                            src="https://open.spotify.com/embed/artist/0RXn6P4sZpjnB7bbrFLSLc?utm_source=generator&theme=0"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                            allowfullscreen>
-                        </iframe>
-
+                    <div class="music-label">
+                        <span>Visual Art</span>
+                        <span>Arts by Lowny</span>
                     </div>
 
-
-
-                    <!-- =================================================
-                         ARTS BY LOWNY
-                    ================================================== -->
-
-                    <div class="music-player">
-
-                        <div class="music-label">
-
-                            <span>
-                                VISUAL ART
-                            </span>
-
-                            <span>
-                                ARTS BY LOWNY
-                            </span>
-
-                        </div>
-
-
-                        <iframe
-                            class="spotify-frame"
-                            src="https://open.spotify.com/embed/playlist/6qgael9hkOVnnoNuB8TGcV?utm_source=generator&theme=0"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                            allowfullscreen>
-                        </iframe>
-
-                    </div>
-
+                    <iframe
+                        class="spotify-frame"
+                        src="https://open.spotify.com/embed/playlist/6qgael9hkOVnnoNuB8TGcV?utm_source=generator&theme=0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                    ></iframe>
 
                 </div>
 
@@ -1074,102 +883,34 @@
         </section>
 
 
-
-        <!-- =====================================================
+        <!-- =========================
              PORTFOLIO
-        ====================================================== -->
+        ========================= -->
 
-        <section
-            class="work"
-            id="work"
-        >
+        <section class="work-section" id="work">
+
+            <div class="section-title">
+                Selected Work
+            </div>
 
             <div class="work-header">
 
-                <div>
-
-                    <div class="section-title">
-                        SELECTED WORK
-                    </div>
-
-                    <h2>
-                        Visuals
-                    </h2>
-
-                </div>
-
+                <h2>
+                    Portfolio
+                </h2>
 
                 <p>
                     A selection of 3D artwork, cover art,
-                    animation and visual design created
-                    for music artists and creative projects.
+                    animation and visual design created for
+                    music artists and creative projects.
                 </p>
 
             </div>
 
 
-
             <div class="portfolio-grid">
 
-
-                <div class="portfolio-item">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1600&q=85"
-                        alt="3D Artwork"
-                    >
-
-                    <div class="portfolio-overlay">
-
-                        <h3>
-                            3D Artwork
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="portfolio-item">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1600&q=85"
-                        alt="Digital Artwork"
-                    >
-
-                    <div class="portfolio-overlay">
-
-                        <h3>
-                            Digital Artwork
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="portfolio-item">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=1600&q=85"
-                        alt="Abstract Visual"
-                    >
-
-                    <div class="portfolio-overlay">
-
-                        <h3>
-                            Visual Design
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="portfolio-item">
+                <div class="portfolio-item large">
 
                     <img
                         src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=85"
@@ -1179,42 +920,86 @@
                     <div class="portfolio-overlay">
 
                         <h3>
-                            3D Render
+                            3D Visual
                         </h3>
+
+                        <p>
+                            3D / Art Direction
+                        </p>
 
                     </div>
 
                 </div>
 
 
+                <div class="portfolio-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=85"
+                        alt="Abstract Artwork"
+                    >
+
+                    <div class="portfolio-overlay">
+
+                        <h3>
+                            Abstract
+                        </h3>
+
+                        <p>
+                            Cover Art
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="portfolio-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=1200&q=85"
+                        alt="Digital Artwork"
+                    >
+
+                    <div class="portfolio-overlay">
+
+                        <h3>
+                            Digital Art
+                        </h3>
+
+                        <p>
+                            Visual Design
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
 
 
-
-        <!-- =====================================================
+        <!-- =========================
              SERVICES
-        ====================================================== -->
+        ========================= -->
 
-        <section
-            class="services"
-            id="services"
-        >
+        <section class="services" id="services">
 
-            <div class="section-title">
-                SERVICES
+            <div class="services-header">
+
+                <div class="section-title">
+                    Services
+                </div>
+
+                <h2>
+                    What I Create
+                </h2>
+
             </div>
 
 
-            <h2>
-                What I Do
-            </h2>
-
-
-
             <div class="services-grid">
-
 
                 <div class="service-card">
 
@@ -1222,17 +1007,20 @@
                         01
                     </div>
 
-                    <h3>
-                        Cover Art
-                    </h3>
+                    <div>
 
-                    <p>
-                        Custom artwork designed for singles,
-                        albums, EPs and electronic music releases.
-                    </p>
+                        <h3>
+                            Cover Art
+                        </h3>
+
+                        <p>
+                            Custom artwork and cinematic
+                            3D visuals for music releases.
+                        </p>
+
+                    </div>
 
                 </div>
-
 
 
                 <div class="service-card">
@@ -1241,17 +1029,20 @@
                         02
                     </div>
 
-                    <h3>
-                        Motion Visuals
-                    </h3>
+                    <div>
 
-                    <p>
-                        Cinematic 3D animation and motion
-                        graphics for artists, labels and events.
-                    </p>
+                        <h3>
+                            Motion Visuals
+                        </h3>
+
+                        <p>
+                            Animated artwork, loops and
+                            visuals designed for music.
+                        </p>
+
+                    </div>
 
                 </div>
-
 
 
                 <div class="service-card">
@@ -1260,17 +1051,20 @@
                         03
                     </div>
 
-                    <h3>
-                        Music Visualizers
-                    </h3>
+                    <div>
 
-                    <p>
-                        Animated visuals synchronized with
-                        music for releases, YouTube and social media.
-                    </p>
+                        <h3>
+                            Music Visualizers
+                        </h3>
+
+                        <p>
+                            Reactive visual experiences
+                            built around your music.
+                        </p>
+
+                    </div>
 
                 </div>
-
 
 
                 <div class="service-card">
@@ -1279,60 +1073,59 @@
                         04
                     </div>
 
-                    <h3>
-                        Visual Packs
-                    </h3>
+                    <div>
 
-                    <p>
-                        Collections of looping visuals created
-                        for live performances, LED screens and VJ sets.
-                    </p>
+                        <h3>
+                            Visual Packs
+                        </h3>
+
+                        <p>
+                            Sets of custom loops and assets
+                            for live shows and releases.
+                        </p>
+
+                    </div>
 
                 </div>
-
 
             </div>
 
         </section>
 
 
-
-        <!-- =====================================================
+        <!-- =========================
              ABOUT
-        ====================================================== -->
+        ========================= -->
 
-        <section
-            class="about"
-            id="about"
-        >
+        <section class="about" id="about">
 
             <div>
 
                 <div class="section-title">
-                    ABOUT
+                    About
                 </div>
 
                 <h2>
-                    LOWNY.JPG
+                    Built for<br>
+                    Music.
                 </h2>
 
             </div>
 
 
-            <div class="about-text">
+            <div>
 
-                <p>
-                    I'm a 3D artist and visual designer focused
-                    on creating cinematic artwork and motion
-                    visuals for electronic music.
+                <p class="about-text">
+                    LOWNY.JPG is a visual identity focused on
+                    3D artwork, music visuals and cinematic
+                    digital experiences.
                 </p>
 
-                <br>
-
-                <p>
-                    My work combines 3D design, animation,
-                    lighting and atmosphere to create visuals
-                    that feel connected to the energy of the music.
+                <p class="about-text">
+                    With years of experience creating artwork
+                    for artists, labels and creative projects,
+                    the goal is simple: build visuals that
+                    feel as powerful as the music behind them.
                 </p>
 
             </div>
@@ -1340,80 +1133,78 @@
         </section>
 
 
-
-        <!-- =====================================================
+        <!-- =========================
              CONTACT
-        ====================================================== -->
+        ========================= -->
 
-        <section
-            class="contact"
-            id="contact"
-        >
+        <section class="contact" id="contact">
 
             <div class="section-title">
-                CONTACT
+                Contact
             </div>
 
-
             <h2>
-                LET'S<br>
-                CREATE.
+                Let's Create.
             </h2>
 
-
             <p>
-                Available for artwork, visuals,
-                animation and creative projects.
+                Have a project, release or visual idea?
+                Let's turn it into something memorable.
             </p>
 
-
             <a
-                href="mailto:YOUR-EMAIL@example.com"
+                href="https://www.instagram.com/lowny.jpg/?__pwa=1"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="contact-button"
             >
-                GET IN TOUCH →
+                Get In Touch →
             </a>
 
         </section>
 
+    </main>
 
 
-        <!-- =====================================================
-             FOOTER
-        ====================================================== -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
-        <footer>
+    <footer>
 
-            <div>
-                © 2026 LOWNY.JPG
-            </div>
+        <div>
+            © 2026 LOWNY.JPG
+        </div>
 
+        <div class="footer-links">
 
-            <div class="footer-links">
+            <a
+                href="https://www.instagram.com/lowny.jpg/?__pwa=1"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Instagram
+            </a>
 
-                <a href="#">
-                    Instagram
-                </a>
+            <a
+                href="https://www.artstation.com/lownyart"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ArtStation
+            </a>
 
-                <a href="#">
-                    ArtStation
-                </a>
+            <a
+                href="https://lownyjpg.gumroad.com"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Gumroad
+            </a>
 
-                <a href="#">
-                    X
-                </a>
+        </div>
 
-                <a href="#">
-                    Gumroad
-                </a>
-
-            </div>
-
-        </footer>
-
-
-    </div>
-
+    </footer>
 
 </body>
 </html>

@@ -151,6 +151,31 @@
             text-align: center;
         }
 
+        /* LOGO */
+
+        .hero-logo {
+            width: clamp(70px, 10vw, 125px);
+            height: auto;
+
+            display: block;
+
+            margin-bottom: 24px;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(0 0 25px rgba(56, 136, 252, 0.12));
+
+            transition: 0.4s ease;
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.04);
+
+            filter:
+                drop-shadow(0 0 30px rgba(56, 136, 252, 0.22));
+        }
+
         .hero h1 {
             font-size: clamp(55px, 10vw, 140px);
             font-weight: 800;
@@ -388,8 +413,6 @@
 
             aspect-ratio: 16 / 10;
         }
-
-        /* PRINCIPAL - GRANDE ARRIBA */
 
         .portfolio-item.large {
             grid-column: span 2;
@@ -669,6 +692,11 @@
                 padding: 90px 6% 40px;
             }
 
+            .hero-logo {
+                width: 85px;
+                margin-bottom: 20px;
+            }
+
             .music-section {
                 padding: 45px 6% 90px;
             }
@@ -727,6 +755,10 @@
 
             .hero h1 {
                 letter-spacing: -4px;
+            }
+
+            .hero-logo {
+                width: 70px;
             }
 
             .services-grid {
@@ -808,6 +840,13 @@
     <main>
 
         <section class="hero">
+
+            <!-- LOGO -->
+            <img
+                src="lownylogo1.png"
+                alt="LOWNY.JPG Logo"
+                class="hero-logo"
+            >
 
             <h1>
                 LOWNY<span>.JPG</span>
@@ -916,10 +955,6 @@
 
             <div class="portfolio-grid">
 
-                <!-- =========================
-                     PRINCIPAL
-                ========================= -->
-
                 <div class="portfolio-item large">
 
                     <img
@@ -941,10 +976,6 @@
 
                 </div>
 
-
-                <!-- =========================
-                     SECONDARY 01
-                ========================= -->
 
                 <div class="portfolio-item">
 
@@ -968,10 +999,6 @@
                 </div>
 
 
-                <!-- =========================
-                     SECONDARY 02
-                ========================= -->
-
                 <div class="portfolio-item">
 
                     <img
@@ -994,10 +1021,6 @@
                 </div>
 
 
-                <!-- =========================
-                     SECONDARY 03
-                ========================= -->
-
                 <div class="portfolio-item">
 
                     <img
@@ -1019,10 +1042,6 @@
 
                 </div>
 
-
-                <!-- =========================
-                     SECONDARY 04
-                ========================= -->
 
                 <div class="portfolio-item">
 
@@ -1243,7 +1262,7 @@
     <footer>
 
         <div>
-            © 2026 LOWNY.JPG
+            © 2018 LOWNY.JPG
         </div>
 
         <div class="footer-links">

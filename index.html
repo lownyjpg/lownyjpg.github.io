@@ -90,6 +90,7 @@
             position: fixed;
             top: 0;
             left: 0;
+
             width: 100%;
 
             display: flex;
@@ -97,37 +98,150 @@
             align-items: center;
 
             padding: 25px 8%;
+
             z-index: 50;
 
-            background: linear-gradient(
-                180deg,
-                rgba(5, 7, 11, 0.72),
-                rgba(5, 7, 11, 0)
-            );
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 7, 11, 0.72),
+                    rgba(5, 7, 11, 0)
+                );
+
+            border: 1px solid transparent;
+
+            transition:
+                width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                top 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                left 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                border-radius 0.45s ease,
+                background 0.45s ease,
+                box-shadow 0.45s ease,
+                backdrop-filter 0.45s ease,
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .nav-logo {
             font-size: 15px;
             font-weight: 700;
             letter-spacing: 3px;
+
             color: var(--white-blue);
+
+            white-space: nowrap;
+
+            transition:
+                font-size 0.35s ease,
+                letter-spacing 0.35s ease;
         }
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 28px;
+
+            transition:
+                gap 0.35s ease;
         }
 
         .nav-links a {
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
+
             color: var(--white-blue);
-            transition: 0.3s ease;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
         }
 
         .nav-links a:hover {
             color: var(--blue);
+        }
+
+        /* =========================
+           SCROLLED NAVIGATION
+        ========================= */
+
+        nav.scrolled {
+            width: min(760px, calc(100% - 40px));
+
+            top: 16px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            padding: 10px 14px 10px 18px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(10, 14, 22, 0.72);
+
+            border:
+                1px solid rgba(233, 244, 255, 0.14);
+
+            backdrop-filter:
+                blur(18px)
+                saturate(135%);
+
+            -webkit-backdrop-filter:
+                blur(18px)
+                saturate(135%);
+
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.30),
+                0 0 0 1px rgba(56, 136, 252, 0.025),
+                0 0 35px rgba(56, 136, 252, 0.045);
+
+            background-image:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(255, 255, 255, 0.012)
+                );
+        }
+
+        nav.scrolled .nav-logo {
+            font-size: 13px;
+            letter-spacing: 2.5px;
+        }
+
+        nav.scrolled .nav-links {
+            gap: 21px;
+        }
+
+        nav.scrolled .nav-links a {
+            font-size: 10px;
+            letter-spacing: 1.6px;
+        }
+
+        /* Small blue light inside the glass menu */
+
+        nav.scrolled::after {
+            content: "";
+
+            position: absolute;
+
+            left: 20%;
+            right: 20%;
+            bottom: -1px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(56, 136, 252, 0.28),
+                    transparent
+                );
+
+            opacity: 0.7;
+
+            pointer-events: none;
         }
 
         /* =========================
@@ -171,6 +285,7 @@
             font-weight: 800;
             letter-spacing: -6px;
             line-height: 0.9;
+
             color: var(--white-blue);
 
             text-shadow:
@@ -206,9 +321,11 @@
 
             color: var(--white-blue);
 
-            background: rgba(25, 35, 56, 0.45);
+            background:
+                rgba(25, 35, 56, 0.45);
 
-            border: 1px solid rgba(233, 244, 255, 0.16);
+            border:
+                1px solid rgba(233, 244, 255, 0.16);
 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -220,9 +337,11 @@
         }
 
         .hero-button:hover {
-            border-color: rgba(56, 136, 252, 0.45);
+            border-color:
+                rgba(56, 136, 252, 0.45);
 
-            background: rgba(25, 35, 56, 0.6);
+            background:
+                rgba(25, 35, 56, 0.6);
 
             box-shadow:
                 0 10px 35px rgba(56, 136, 252, 0.12);
@@ -250,9 +369,11 @@
 
             color: var(--blue);
 
-            background: rgba(25, 35, 56, 0.45);
+            background:
+                rgba(25, 35, 56, 0.45);
 
-            border: 1px solid rgba(233, 244, 255, 0.16);
+            border:
+                1px solid rgba(233, 244, 255, 0.16);
 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -264,9 +385,11 @@
         }
 
         .section-title:hover {
-            border-color: rgba(56, 136, 252, 0.45);
+            border-color:
+                rgba(56, 136, 252, 0.45);
 
-            background: rgba(25, 35, 56, 0.6);
+            background:
+                rgba(25, 35, 56, 0.6);
 
             box-shadow:
                 0 10px 35px rgba(56, 136, 252, 0.12);
@@ -284,6 +407,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+
             gap: 40px;
             margin-bottom: 22px;
         }
@@ -291,6 +415,7 @@
         .music-header h2 {
             font-size: clamp(30px, 5vw, 60px);
             letter-spacing: -2px;
+
             color: var(--white-blue);
         }
 
@@ -305,16 +430,21 @@
 
         .music-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
+
             gap: 20px;
         }
 
         .music-card {
             padding: 20px;
 
-            background: rgba(5, 7, 11, 0.42);
+            background:
+                rgba(5, 7, 11, 0.42);
 
-            border: 1px solid var(--line);
+            border:
+                1px solid var(--line);
 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -366,12 +496,15 @@
         .work-header h2 {
             font-size: clamp(35px, 6vw, 70px);
             letter-spacing: -3px;
+
             color: var(--white-blue);
         }
 
         .work-header p {
             max-width: 350px;
+
             color: var(--white-blue);
+
             line-height: 1.6;
         }
 
@@ -394,9 +527,11 @@
             position: relative;
             overflow: hidden;
 
-            background: var(--dark-blue);
+            background:
+                var(--dark-blue);
 
-            border: 1px solid var(--line);
+            border:
+                1px solid var(--line);
 
             aspect-ratio: 16 / 10;
         }
@@ -462,6 +597,7 @@
             font-size: 11px;
             letter-spacing: 1px;
             text-transform: uppercase;
+
             color: var(--white-blue);
         }
 
@@ -503,7 +639,8 @@
         .play-button:hover {
             transform: scale(1.12);
 
-            background: var(--blue);
+            background:
+                var(--blue);
 
             box-shadow:
                 0 0 25px rgba(56, 136, 252, 0.45);
@@ -519,9 +656,11 @@
             position: relative;
             overflow: hidden;
 
-            background: var(--dark-blue);
+            background:
+                var(--dark-blue);
 
-            border: 1px solid var(--line);
+            border:
+                1px solid var(--line);
 
             aspect-ratio: 9 / 16;
         }
@@ -579,9 +718,11 @@
             flex-direction: column;
             justify-content: space-between;
 
-            background: rgba(25, 35, 56, 0.38);
+            background:
+                rgba(25, 35, 56, 0.38);
 
-            border: 1px solid var(--line);
+            border:
+                1px solid var(--line);
 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -602,6 +743,7 @@
         .service-number {
             font-size: 11px;
             letter-spacing: 2px;
+
             color: var(--blue);
         }
 
@@ -609,6 +751,7 @@
             margin-top: 35px;
 
             font-size: 20px;
+
             color: var(--white-blue);
         }
 
@@ -629,7 +772,9 @@
             padding: 80px 8% 110px;
 
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
 
             gap: 80px;
 
@@ -658,6 +803,7 @@
 
         .contact {
             padding: 100px 8% 120px;
+
             text-align: center;
         }
 
@@ -737,6 +883,7 @@
 
         .footer-links a {
             color: var(--white-blue);
+
             transition: 0.3s ease;
         }
 
@@ -752,6 +899,15 @@
 
             .nav-links {
                 display: none;
+            }
+
+            nav.scrolled {
+                width: calc(100% - 28px);
+
+                top: 14px;
+
+                padding:
+                    10px 16px;
             }
 
             .hero {
@@ -833,6 +989,20 @@
 
         @media (max-width: 560px) {
 
+            nav.scrolled {
+                width: calc(100% - 20px);
+
+                top: 10px;
+
+                padding:
+                    10px 14px;
+            }
+
+            .nav-logo {
+                font-size: 13px;
+                letter-spacing: 2px;
+            }
+
             .hero h1 {
                 letter-spacing: -4px;
             }
@@ -894,7 +1064,7 @@
          NAVIGATION
     ========================= -->
 
-    <nav>
+    <nav id="mainNav">
 
         <a href="#" class="nav-logo">
             LOWNY.JPG
@@ -1033,10 +1203,7 @@
 
             <div class="portfolio-grid">
 
-                <!-- =========================
-                     01 — PRINCIPAL
-                     NO PLAY BUTTON
-                ========================= -->
+                <!-- 01 — PRINCIPAL -->
 
                 <div class="portfolio-item large">
 
@@ -1060,9 +1227,7 @@
                 </div>
 
 
-                <!-- =========================
-                     02 — DISTANT MEMORY
-                ========================= -->
+                <!-- 02 — DISTANT MEMORY -->
 
                 <div class="portfolio-item">
 
@@ -1096,9 +1261,7 @@
                 </div>
 
 
-                <!-- =========================
-                     03 — ALL YOU GOTTA DO IS BELIEVE
-                ========================= -->
+                <!-- 03 — ALL YOU GOTTA DO IS BELIEVE -->
 
                 <div class="portfolio-item">
 
@@ -1132,9 +1295,7 @@
                 </div>
 
 
-                <!-- =========================
-                     04 — BIG CASH
-                ========================= -->
+                <!-- 04 — BIG CASH -->
 
                 <div class="portfolio-item">
 
@@ -1168,9 +1329,7 @@
                 </div>
 
 
-                <!-- =========================
-                     05 — BETWEEN US
-                ========================= -->
+                <!-- 05 — BETWEEN US -->
 
                 <div class="portfolio-item">
 
@@ -1204,9 +1363,7 @@
                 </div>
 
 
-                <!-- =========================
-                     06 — MOSIRAX
-                ========================= -->
+                <!-- 06 — MOSIRAX -->
 
                 <div class="animation-item">
 
@@ -1226,9 +1383,7 @@
                 </div>
 
 
-                <!-- =========================
-                     07 — LET ME BREAK EP
-                ========================= -->
+                <!-- 07 — LET ME BREAK EP -->
 
                 <div class="animation-item">
 
@@ -1248,9 +1403,7 @@
                 </div>
 
 
-                <!-- =========================
-                     08 — HIGHER 3
-                ========================= -->
+                <!-- 08 — HIGHER 3 -->
 
                 <div class="animation-item">
 
@@ -1270,9 +1423,7 @@
                 </div>
 
 
-                <!-- =========================
-                     09 — DR!FTR0Y
-                ========================= -->
+                <!-- 09 — DR!FTR0Y -->
 
                 <div class="animation-item">
 
@@ -1521,6 +1672,34 @@
 
     </footer>
 
+
+    <!-- =========================
+         SCROLL NAVIGATION
+    ========================= -->
+
+    <script>
+
+        const nav = document.getElementById("mainNav");
+
+        function updateNavigation() {
+
+            if (window.scrollY > 60) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+
+        }
+
+        window.addEventListener(
+            "scroll",
+            updateNavigation,
+            { passive: true }
+        );
+
+        updateNavigation();
+
+    </script>
+
 </body>
 </html>
-```
